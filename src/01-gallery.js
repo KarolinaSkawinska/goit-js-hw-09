@@ -72,11 +72,10 @@ const galleryMarkup = createGalleryMarkup(images);
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
-const lightbox = new SimpleLightbox('ul.gallery li', {
+let lightbox = new SimpleLightbox('.gallery a', {
   captionType: 'alt',
   captionDelay: 250,
   captionPosition: 'bottom',
-  sourceAttr: 'href',
 });
 
 function createGalleryMarkup(images) {
@@ -92,3 +91,9 @@ function createGalleryMarkup(images) {
     })
     .join('');
 }
+
+let lightbox = new SimpleLightbox('ul.gallery li', {
+  captionType: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});

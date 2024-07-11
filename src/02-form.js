@@ -1,7 +1,7 @@
 const form = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 
-form.addEventListener('input', throttle(onFormInput, 500));
+form.addEventListener('input', onFormInput);
 form.addEventListener('submit', onFormSubmit);
 
 populateForm();
@@ -38,16 +38,4 @@ function onFormSubmit(event) {
 
   form.reset();
   localStorage.removeItem(STORAGE_KEY);
-}
-
-function throttle(func, delay) {
-  let lastCall = 0;
-  return function (...args) {
-    const now = new Date().getTime();
-    if (now - lastCall < delay) {
-      return;
-    }
-    lastCall = now;
-    return func(...args);
-  };
 }
